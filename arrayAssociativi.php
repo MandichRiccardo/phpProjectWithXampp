@@ -102,6 +102,33 @@
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di parole (parola => lunghezza) e stampa le parole più lunghe-->
         <h1 class="maiuscolo">parole lunghe</h1>
+        <ul>
+            <li>
+                parole più lunghe:
+                <?php $parole = [];
+                $parole["ciao"] = 0;
+                $parole["buongiorno"] = 0;
+                $parole["arrivederci"] = 0;
+                $parole["mattina"] = 0;
+                $parole["pomeriggio"] = 0;
+                $parole["sera"] = 0;
+                $parole["notte"] = 0;
+                foreach ($parole as $key=>&$value):
+                    $value = strlen($key);
+                    $max = max(isset($max)?$max:0, $value);
+                endforeach;
+                foreach($parole as $key=>$value):
+                    if($value === $max):?>
+                        <ul>
+                            <li>
+                                <?php echo $key."    ".$value;?>
+                            </li>
+                        </ul>
+                    <?php
+                    endif;
+                endforeach;?>
+            </li>
+        </ul>
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di mesi dell'anno (numero => nome) e stampa i mesi in ordine crescente utilizzando la funzione "asort".-->
         <h1 class="maiuscolo">mesi in ordine</h1>
