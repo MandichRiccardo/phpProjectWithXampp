@@ -14,6 +14,7 @@
         <br>
         <label for="password">inserisci la tua password <input type="text" name="password" id="password"></label>
         <br>
+        <input type="submit" value="invia">
     </form>
 </body>
 </html>
