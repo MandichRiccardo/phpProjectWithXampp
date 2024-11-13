@@ -20,10 +20,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <?php echo $_POST["nome"];?>
+                    <td>
+                        <?php echo $_POST["nome"];?>
+                    </td>
                 </tr>
                 <tr>
-                    <?php echo $_POST["password"];?>
+                    <td>
+                        <?php echo $_POST["password"];?>
+                    </td>
                 </tr>
             </tbody>
         </table>
