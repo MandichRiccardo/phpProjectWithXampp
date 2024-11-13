@@ -23,8 +23,6 @@
                     <td>
                         <?php echo $_POST["nome"];?>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <?php echo $_POST["password"];?>
                     </td>
