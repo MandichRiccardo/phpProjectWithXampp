@@ -7,7 +7,8 @@
 </head>
 <body>
     <?php if(isset($_POST["nome"])):?>
-        
+        nome:<?php echo $_POST["nome"];?>
+        password:<?php echo $_POST["password"];?>
     <?php endif;?>
 </body>
 </html>
