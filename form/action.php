@@ -11,10 +11,10 @@
             <thead>
                 <tr>
                     <td>
-                        nome utente
+                        nome
                     </td>
                     <td>
-                        password utente
+                        password
                     </td>
                 </tr>
             </thead>
