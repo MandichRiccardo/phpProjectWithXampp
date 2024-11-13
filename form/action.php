@@ -7,8 +7,26 @@
 </head>
 <body>
     <?php if(isset($_POST["nome"])):?>
-        nome:<?php echo $_POST["nome"];?>
-        password:<?php echo $_POST["password"];?>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        nome
+                    </td>
+                    <td>
+                        password
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <?php echo $_POST["nome"];?>
+                </tr>
+                <tr>
+                    <?php echo $_POST["password"];?>
+                </tr>
+            </tbody>
+        </table>
     <?php endif;?>
 </body>
 </html>
