@@ -7,14 +7,14 @@
 </head>
 <body>
     <?php if(isset($_POST["nome"])):?>
-        <table>
+        <table border>
             <thead>
                 <tr>
                     <td>
-                        nome
+                        nome utente
                     </td>
                     <td>
-                        password
+                        password utente
                     </td>
                 </tr>
             </thead>
