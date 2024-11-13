@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--Scrivere un programma PHP che dichiara un array associativo di dati personali (nome, cognome, età) e lo stampa-->
-        <h1 class="maiuscolo">dati personali</h1>
+        <h1>dati personali</h1>
         <?php
             $persona = [];
             $persona["nome"] = "Riccardo";
@@ -27,7 +27,7 @@
             <?php endforeach;?>
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di voti degli studenti (nome => voto) e calcola la media dei voti.-->
-        <h1 class="maiuscolo">voti degli studenti</h1>
+        <h1>voti degli studenti</h1>
         <?php
             $voti = [];
             $voti["Riccardo"] = rand(4, 10);
@@ -64,7 +64,7 @@
             ?>
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di prodotti (nome => prezzo) e stampa i prodotti con un prezzo superiore a 50 euro.-->
-        <h1 class="maiuscolo">prodotti superiori a 50€</h1>
+        <h1>prodotti superiori a 50€</h1>
         
         <?php
             $prodotti = [];
@@ -101,7 +101,7 @@
             </ul>
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di parole (parola => lunghezza) e stampa le parole più lunghe-->
-        <h1 class="maiuscolo">parole lunghe</h1>
+        <h1>parole lunghe</h1>
         <ul>
             <li>
                 parole più lunghe:
@@ -131,7 +131,7 @@
         </ul>
         <hr>
         <!--Scrivere un programma PHP che dichiara un array associativo di mesi dell'anno (numero => nome) e stampa i mesi in ordine crescente utilizzando la funzione "asort".-->
-        <h1 class="maiuscolo">mesi in ordine</h1>
+        <h1>mesi in ordine</h1>
         
         <?php
             $mesi = [];
@@ -165,7 +165,7 @@
         <hr>
     </body>
     <style>
-        .maiuscolo{
+        h1{
             text-transform: uppercase;
         }
     </style>
