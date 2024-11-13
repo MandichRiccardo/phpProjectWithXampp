@@ -9,10 +9,10 @@
     <h1>
         login
     </h1>
-    <form action="./action">
+    <form method="post" action="./action">
         <label for="nome">inserisci il tuo nome<input type="text" name="nome" id="nome"></label>
         <br>
-        <label for="password">inserisci la tua password <input type="text" name="password" id="password"></label>
+        <label for="password">inserisci la tua password <input type="password" name="password" id="password"></label>
         <br>
         <input type="submit" value="invia">
     </form>
