@@ -25,6 +25,12 @@
             </tbody>
         </table>
     <?php endif;?>
-    
 </body>
+<style>
+    table{
+        background-color: aqua;
+        border: 2px solid cyan;
+        
+    }
+</style>
 </html>
