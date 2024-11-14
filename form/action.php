@@ -16,7 +16,8 @@
                     while($colonna<5 && $i<$_GET["numero"]):?>
                     <td>
                         <?php echo $i;
-                        $i++;?>
+                        $i++;
+                        $colonna++?>
                     </td>
                     <?php endwhile;?>
                     </tr>
