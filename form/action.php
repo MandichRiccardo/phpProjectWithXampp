@@ -6,27 +6,21 @@
     <title>Action</title>
 </head>
 <body>
-    <?php if(isset($_POST["nome"])):?>
+    <?php if(isset($_GET["nome"])):?>
         <table border>
-            <thead>
-                <tr>
-                    <td>
-                        nome
-                    </td>
-                    <td>
-                        password
-                    </td>
-                </tr>
-            </thead>
             <tbody>
-                <tr>
+                <?php $i=0;
+                while($i<$_GET["numero"]):?>
+                    <tr>
+                    <?php $colonna = 0;
+                    while($colonna<5 && $i<$_GET["numero"]):?>
                     <td>
-                        <?php echo $_POST["nome"];?>
+                        <?php echo $i;
+                        $i++;?>
                     </td>
-                    <td>
-                        <?php echo $_POST["password"];?>
-                    </td>
-                </tr>
+                    <?php endwhile;?>
+                    </tr>
+                <?php endwhile;?>
             </tbody>
         </table>
     <?php endif;?>

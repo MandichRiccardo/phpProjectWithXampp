@@ -9,10 +9,10 @@
     <h1>
         login
     </h1>
-    <form method="post" action="./action">
+    <form method="get" action="./action">
         <label for="nome">inserisci il tuo nome<input type="text" name="nome" id="nome"></label>
         <br>
-        <label for="password">inserisci la tua password <input type="password" name="password" id="password"></label>
+        <label for="numero">inserisci il numero di celle da creare <input type="number" name="numero" id="numero"></label>
         <br>
         <input type="submit" value="invia">
     </form>
