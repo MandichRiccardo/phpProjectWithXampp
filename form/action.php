@@ -29,8 +29,8 @@
 <style>
     table{
         background-color: aqua;
-        border: 2px solid cyan;
-        
+        border: 2px solid green;
+
     }
 </style>
 </html>
