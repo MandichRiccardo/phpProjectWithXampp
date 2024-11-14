@@ -30,7 +30,10 @@
     table{
         background-color: aqua;
         border: 2px solid green;
-
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 </style>
 </html>
