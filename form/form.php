@@ -14,6 +14,7 @@
         <br>
         <label for="numero">inserisci il numero di celle da creare <input type="number" name="numero" id="numero"></label>
         <br>
+        <label for="max">inserisci il numero massimo di celle in una riga <input type="number" name="max" id="max"></label>
         <input type="submit" value="invia">
     </form>
 </body>

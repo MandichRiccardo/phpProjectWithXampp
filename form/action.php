@@ -13,7 +13,7 @@
                 while($i<$_GET["numero"]):?>
                     <tr>
                     <?php $colonna = 0;
-                    while($colonna<5 && $i<$_GET["numero"]):?>
+                    while($colonna<$_GET["max"] && $i<$_GET["numero"]):?>
                     <td>
                         <?php echo $i;
                         $i++;
