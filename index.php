@@ -37,7 +37,7 @@
                 $contenuto = str_replace("<", "", $contenuto[0]);
                 $contenuto = str_replace(">", "", $contenuto);
                 $contenuto = preg_replace("/\/[^\/]+$/", "", $contenuto);
-                //$contenuto = preg_replace("/^.*\//", "", $contenuto);
+                $contenuto = preg_replace("/^.*\//", "", $contenuto);
                 echo "|$contenuto|-->";
                 printlnd($value, $deep+1);
             }
