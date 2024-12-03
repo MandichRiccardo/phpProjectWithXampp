@@ -38,7 +38,7 @@
                 $contenuto = str_replace(">", "", $contenuto);
                 $contenuto = preg_replace("//.*?$/", "", $contenuto);
                 //$contenuto = preg_replace("/^.*\//", "", $contenuto);
-                echo "$contenuto-->";
+                echo "|$contenuto|-->";
                 printlnd($value, $deep+1);
             }
             unset($j);
