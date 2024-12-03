@@ -15,6 +15,7 @@
                     if(is_dir("$directory/$file")){
                         scanDirectory("$directory/$file");
                     }else{
+                        echo "$directory/$file<br>";
                         ?>
                         <li>
                             <a href="/<?php echo $directory/$file?>"><?php echo $directory/$file?></a>
