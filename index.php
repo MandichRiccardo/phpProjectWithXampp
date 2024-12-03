@@ -15,7 +15,7 @@
                     if(is_dir("$directory/$file")){
                         array_push($ret, scanDirectory("$directory/$file"));
                     }else{
-                        array_push($ret, "<\a href=\"$directory/$file\">$directory/$file</a>");
+                        array_push($ret, "<a href=\"$directory/$file\">$directory/$file</a>");
                     }
                 }/**/
             }
@@ -24,11 +24,38 @@
         return $ret;
     }
 
+    function printlnd($line, $deep){
+        if(gettype($line) == 'array'){
+            echo "{<br>";
+            foreach($line as $i => $value){
+                unset($j);
+                for($j = 0;$j<=$deep;$j++){
+                    echo "&nbsp;&nbsp;";
+                }
+                echo "$i-->";
+                printlnd($value, $deep+1);
+            }
+            unset($j);
+            for($j = 0;$j<$deep;$j++){
+                echo "&nbsp;&nbsp;";
+            }
+            echo "}<br>";
+        }else{
+            echo $line;
+            echo "<br>";
+        }
+    }
+
+    function println($line){
+        printlnd($line, 0);
+    }
+
     $file = scanDirectory(".");
+    println($file);
 ?>
 <body>
     <ul>
-        <?php var_dump($file)?>
+        <?php ?>
     </ul>
 </body>
 </html>
