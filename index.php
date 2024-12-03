@@ -10,7 +10,7 @@
         $dir = @opendir($directory);
         try{
             while (($file = readdir($dir)) !== false) {
-                echo $file;/*
+                echo "$file<br>";/*
                 if ($file != '.' && $file != '..') {
                     if(is_dir("$directory/$file")){
                         scanDirectory("$directory/$file");
