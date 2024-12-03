@@ -42,7 +42,11 @@
             }
             echo "}<br>";
         }else{
-            echo $line;
+            $contenuto = preg_match("/>.*</", $line);
+            $contenuto = str_replace("<", "", $contenuto);
+            $contenuto = str_replace(">", "", $contenuto);
+            $contenuto = preg_replace("/^.*\//", "", $contenuto);
+            echo $contenuto;
             echo "<br>";
         }
     }
