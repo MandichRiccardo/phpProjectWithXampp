@@ -46,7 +46,7 @@
             echo "$line<br>";
             $titolo = preg_replace("/<a.*?\".*\">?/", "-", $titolo);
             $titolo = preg_replace("/<\/a>?/", "+", $titolo);
-            echo "|"./*preg_replace("/^.*\//", "", $titolo)/**/$titolo/**/."|";
+            echo "|".preg_replace("/^.*\//", "", $titolo)."|";
             echo "<br>";
             echo $line;
             echo "<br>";
