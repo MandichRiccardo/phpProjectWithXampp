@@ -52,7 +52,7 @@
             $contenuto = str_replace("<", "", $contenuto[0]);
             $contenuto = str_replace(">", "", $contenuto);
             $contenuto = preg_replace("/^.*\//", "", $contenuto);
-            echo $contenuto;
+            echo $line;
             echo "<br>";
         }
     }
