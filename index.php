@@ -11,12 +11,10 @@
         $dir = @opendir($directory);
         try{
             while (($file = readdir($dir)) !== false) {
-                echo "$directory/$file<br>";
                 if ($file != '.' && $file != '..') {
                     if(is_dir("$directory/$file")){
                         array_push($ret, scanDirectory("$directory/$file"));
                     }else{
-                        echo "$directory/$file<br>";
                         array_push($ret, "<a href=\"/<?php echo $directory/$file?>\"><?php echo $directory/$file?></a>");
                     }
                 }/**/
