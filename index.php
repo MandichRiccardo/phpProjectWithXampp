@@ -32,6 +32,7 @@
                 for($j = 0;$j<=$deep;$j++){
                     echo "&nbsp;&nbsp;";
                 }
+                //assegno a dir la cartella di appartenenza del file in questione
                 echo "$i-->";
                 printlnd($value, $deep+1);
             }
@@ -41,6 +42,7 @@
             }
             echo "}<br>";
         }else{
+            echo preg_replace("/^.*\//", "", $line);
             echo $line;
             echo "<br>";
         }
