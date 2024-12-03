@@ -15,7 +15,7 @@
                     if(is_dir("$directory/$file")){
                         array_push($ret, scanDirectory("$directory/$file"));
                     }else{
-                        array_push($ret, "<a href=\"/<?php echo $directory/$file?>\"><?php echo $directory/$file?></a>");
+                        array_push($ret, "<a href=\"$directory/$file\">$directory/$file</a>");
                     }
                 }/**/
             }
