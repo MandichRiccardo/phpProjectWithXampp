@@ -44,8 +44,8 @@
         }else{
             $titolo = $line;
             echo "$line<br>";
-            $titolo = preg_replace("/<a.*?\".*\">?/", "-", $titolo);
-            $titolo = preg_replace("/<\/a>?/", "+", $titolo);
+            $titolo = preg_replace("/<a.*?\".*\">?/", "", $titolo);
+            $titolo = preg_replace("/<\/a>?/", "", $titolo);
             $titolo = preg_replace("/^.*\//", "", $titolo);
             $titolo = preg_replace("/.php/", "", $titolo);
             echo "|".$titolo."|";
