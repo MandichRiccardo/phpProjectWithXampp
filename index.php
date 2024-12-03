@@ -42,7 +42,9 @@
             }
             echo "}<br>";
         }else{
-            echo preg_replace("/^.*\//", "", $line);
+            $titolo = preg_replace("/<a.*>/", "", $line);
+            $titolo = preg_replace("/<\/a.*>/", "", $titolo);
+            echo preg_replace("/^.*\//", "", $titolo);
             echo $line;
             echo "<br>";
         }
