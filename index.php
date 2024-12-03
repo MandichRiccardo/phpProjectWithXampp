@@ -16,7 +16,6 @@
                     }else{
                         ?>
                         <li>
-                            scandir
                             <a href="/<?php echo $directory/$file?>"><?php echo $directory/$file?></a>
                         </li>
                         <?php
