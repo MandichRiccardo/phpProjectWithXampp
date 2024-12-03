@@ -43,7 +43,7 @@
             echo "}<br>";
         }else{
             preg_match("/>.*</", $line, $contenuto);
-            $contenuto = str_replace("<", "", $contenuto);
+            $contenuto = str_replace("<", "", $contenuto[0]);
             $contenuto = str_replace(">", "", $contenuto);
             $contenuto = preg_replace("/^.*\//", "", $contenuto);
             echo $contenuto;
