@@ -33,7 +33,7 @@
                     echo "&nbsp;&nbsp;";
                 }
                 //assegno a dir la cartella di appartenenza del file in questione
-                echo "$i-->";
+                echo "$value-->";
                 printlnd($value, $deep+1);
             }
             unset($j);
