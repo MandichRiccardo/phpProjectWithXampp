@@ -33,7 +33,12 @@
                     echo "&nbsp;&nbsp;";
                 }
                 //assegno a dir la cartella di appartenenza del file in questione
-                echo "$i-->";
+                preg_match("/>.*</", $line, $contenuto);
+                $contenuto = str_replace("<", "", $contenuto[0]);
+                $contenuto = str_replace(">", "", $contenuto);
+                $contenuto = preg_replace("//.*?$/", "", $contenuto);
+                $contenuto = preg_replace("/^.*\//", "", $contenuto);
+                echo "$contenuto-->";
                 printlnd($value, $deep+1);
             }
             unset($j);
