@@ -30,7 +30,7 @@
 ?>
 <body>
     <ul>
-        <?php ?>
+        <?php var_dump($file)?>
     </ul>
 </body>
 </html>
