@@ -33,7 +33,7 @@
                     echo "&nbsp;&nbsp;";
                 }
                 //assegno a dir la cartella di appartenenza del file in questione
-                preg_match("/>.*</", (gettype($value) == 'array' ? $value[0] : $value), $contenuto);
+                preg_match("/>.*</", gettype($value) == 'array' ? $value[0] : $value, $contenuto);
                 $contenuto = str_replace("<", "", $contenuto[0]);
                 $contenuto = str_replace(">", "", $contenuto);
                 $contenuto = preg_replace("//.*?$/", "", $contenuto);
