@@ -48,6 +48,7 @@
             $titolo = preg_replace("/^.*\//", "", $titolo);
             $titolo = preg_replace("/.php/", "", $titolo);
             echo $titolo;
+            echo "<br>";
         }
     }
 
