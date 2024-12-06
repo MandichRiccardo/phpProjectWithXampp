@@ -44,7 +44,7 @@
             }
             unset($j);
             for($j = 0;$j<$deep;$j++){
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo "&nbsp;";
             }
             echo "}<br>";
         }else{
