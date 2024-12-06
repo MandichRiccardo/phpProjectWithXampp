@@ -30,7 +30,7 @@
             foreach($line as $i => $value){
                 unset($j);
                 for($j = 0;$j<=$deep;$j++){
-                    echo "&nbsp;&nbsp;";
+                    echo "&nbsp;&nbsp;&nbsp;&nbsp;";
                 }
                 if(gettype($value) == 'array'){
                     preg_match("/>.*</", $value[0], $contenuto);
@@ -44,7 +44,7 @@
             }
             unset($j);
             for($j = 0;$j<$deep;$j++){
-                echo "&nbsp;";
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;";
             }
             echo "}<br>";
         }else{
