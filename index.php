@@ -53,7 +53,6 @@
             $contenuto = str_replace(">", "", $contenuto);
             $contenuto = preg_replace("/^.*\//", "", $contenuto);
             $link = preg_replace("/>.*</", ">$contenuto<", $line);
-            echo "---&nbsp;&nbsp;";
             echo $link;
             echo "<br>";
         }
