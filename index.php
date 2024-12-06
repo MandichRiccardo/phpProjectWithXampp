@@ -48,12 +48,12 @@
             }
             echo "}<br>";
         }else{
-            echo "---&nbsp;&nbsp;";
             preg_match("/>.*</", $line, $contenuto);
             $contenuto = str_replace("<", "", $contenuto[0]);
             $contenuto = str_replace(">", "", $contenuto);
             $contenuto = preg_replace("/^.*\//", "", $contenuto);
-            echo $line;
+            echo "---&nbsp;&nbsp;";
+            echo $contenuto;
             echo "<br>";
         }
     }
