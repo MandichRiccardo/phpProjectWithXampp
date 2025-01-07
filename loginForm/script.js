@@ -41,7 +41,7 @@ function validateForm(event) {
             id: "popup1",
             title: "I seguenti campi sono stati lasciati vuoti",
             content: warningMessage,
-            backgroundColor: "purple"
+            backgroundColor: "Green"
         });
         myPopup.show();
     }
