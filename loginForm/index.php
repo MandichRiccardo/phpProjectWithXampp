@@ -38,7 +38,7 @@
             border-radius: 4px;
         }
         input[type="submit"] {
-            background-color: #600499;
+            background-color: green;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -47,7 +47,7 @@
             font-size: 16px;
         }
         input[type="submit"]:hover {
-            background-color: #ad45ec;
+            background-color: green;
         }
         select {
             margin-bottom: 10px;
