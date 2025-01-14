@@ -13,7 +13,7 @@ $clienti = [
         <title>es 1</title>
     </head>
     <body>
-        <table>
+        <table border>
             <thead>
                 <tr>
                     <?php foreach($clienti[0] as $key => $value): ?>
