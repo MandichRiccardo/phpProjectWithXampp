@@ -1,8 +1,8 @@
 <?php
 $clienti = [
-    ["nome" => "Mario", "cognome" => "Rossi", "email" => "mario.rossi@example.com", "data_nascita" => "1980-01-01"],
-    ["nome" => "Luigi", "cognome" => "Verdi", "email" => "luigi.verdi@example.com", "data_nascita" => "1985-02-15"],
-    ["nome" => "Giulia", "cognome" => "Bianchi", "email" => "giulia.bianchi@example.com", "data_nascita" => "1990-03-30"]
+    ["nome" => "Mario", "cognome" => "Rossi", "email" => "mario.rossi@example.com", "data nascita" => "1980-01-01"],
+    ["nome" => "Luigi", "cognome" => "Verdi", "email" => "luigi.verdi@example.com", "data nascita" => "1985-02-15"],
+    ["nome" => "Giulia", "cognome" => "Bianchi", "email" => "giulia.bianchi@example.com", "data nascita" => "1990-03-30"]
 ];
 ?>
 <!DOCTYPE html>
