@@ -1,3 +1,20 @@
+<?php
+    function estrai($parola, $punteggiatura = [' ', '.', ',', ';', ':', '!', '?', '-', '_', '(', ')', '[', ']', '{', '}', '"', "'", '<', '>', '/', '\\', '|', '@', '#', '$', '%', '^', '&', '*', '+', '=', '~', '`']){
+        foreach(explode($punteggiatura[0], $parola) as $p){
+            $paroleTemp = estrai($p, array_remove($punteggiatura, $punteggiatura[0]));
+            foreach($paroleTemp as $parola){
+                array_push($parole, $parola);
+            }
+        }
+    }
+?>
+foreach($punteggiatura as $p){
+    $paroleTemp = explode($p, $_GET["stringa"]);
+    foreach($paroleTemp as $parola){
+        array_push($parole, $parola);
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -59,15 +76,7 @@
                         echo "<br>la lettera $c si ripete $f volte";
                     }
                 }
-                $parole = [];
-                $punteggiatura = [' ', '.', ',', ';', ':', '!', '?', '-', '_', '(', ')', '[', ']', '{', '}', '"', "'", '<', '>', '/', '\\', '|', '@', '#', '$', '%', '^', '&', '*', '+', '=', '~', '`'];
-                foreach($punteggiatura as $p){
-                    $paroleTemp = explode($p, $_GET["stringa"]);
-                    foreach($paroleTemp as $parola){
-                        array_push($parole, $parola);
-                    }
-                }
-                
+                $parole = estrai(implode($caratteri));
             ?>
             <br>
             in questa stringa ci sono <?php echo count($parole) ?> parole
