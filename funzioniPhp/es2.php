@@ -72,7 +72,7 @@
             in questa stringa ci sono <?php echo $numeri ?> numeri
             <?php
                 foreach($frequenza as $c => $f){
-                    if($f > 1){
+                    if($f > 0){
                         echo "<br>la lettera $c si ripete $f volte";
                     }
                 }
