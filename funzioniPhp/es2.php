@@ -1,19 +1,19 @@
 <?php
     function estrai($parola, $punteggiatura = [' ', '.', ',', ';', ':', '!', '?', '-', '_', '(', ')', '[', ']', '{', '}', '"', "'", '<', '>', '/', '\\', '|', '@', '#', '$', '%', '^', '&', '*', '+', '=', '~', '`']){
-        foreach(explode($punteggiatura[0], $parola) as $p){
-            $paroleTemp = estrai($p, array_remove($punteggiatura, $punteggiatura[0]));
+        if(count($punteggiatura) == 0){
+            return [$parola];
+        }
+        $carattere = array_pop($punteggiatura);
+        $parole = [];
+        foreach(explode($carattere, $parola) as $p){
+            $paroleTemp = estrai($p, $punteggiatura);
             foreach($paroleTemp as $parola){
                 array_push($parole, $parola);
             }
         }
+        return $parole;
     }
 ?>
-foreach($punteggiatura as $p){
-    $paroleTemp = explode($p, $_GET["stringa"]);
-    foreach($paroleTemp as $parola){
-        array_push($parole, $parola);
-    }
-}
 
 <!DOCTYPE html>
 <html lang="en">
