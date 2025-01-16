@@ -33,12 +33,14 @@
                     echo "&nbsp;&nbsp;&nbsp;&nbsp;";
                 }
                 if(gettype($value) == 'array'){
-                    preg_match("/>.*</", $value[0], $contenuto);
-                    $contenuto = str_replace("<", "", $contenuto[0]);
-                    $contenuto = str_replace(">", "", $contenuto);
-                    $contenuto = preg_replace("/\/[^\/]+$/", "", $contenuto);
-                    $contenuto = preg_replace("/^.*\//", "", $contenuto);
-                    echo "$contenuto-->";
+                    if(gettype($value[""]) == 'string'){
+                        preg_match("/>.*</", $value[0], $contenuto);
+                        $contenuto = str_replace("<", "", $contenuto[0]);
+                        $contenuto = str_replace(">", "", $contenuto);
+                        $contenuto = preg_replace("/\/[^\/]+$/", "", $contenuto);
+                        $contenuto = preg_replace("/^.*\//", "", $contenuto);
+                        echo "$contenuto-->";
+                    }
                 }
                 printlnd($value, $deep+1);
             }
