@@ -25,6 +25,60 @@ $specialties = ['discesa libera', 'super-G', 'slalom gigante', 'slalom speciale'
 <head>
     <meta charset="UTF-8">
     <title>Iscrizione Gara di Sci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"] {
+            margin: 0 10px 0 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>Iscrizione Gara di Sci</h1>
@@ -48,7 +102,7 @@ $specialties = ['discesa libera', 'super-G', 'slalom gigante', 'slalom speciale'
     <h2>Atleti Iscritti</h2>
     <?php foreach ($specialties as $specialty): ?>
         <h3><?php echo $specialty; ?></h3>
-        <table border="1">
+        <table>
             <tr>
                 <th>Nome</th>
                 <th>Cognome</th>
