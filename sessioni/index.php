@@ -5,6 +5,15 @@ if (!isset($_SESSION['athletes'])) {
     $_SESSION['athletes'] = [];
 }
 
+function contiene($array, $elemento){
+    foreach($array as $el){
+        if($el['nome'] == $elemento['nome'] && $el['cognome'] == $elemento['cognome'] && $el['data_nascita'] == $elemento['data_nascita'] && $el['sesso'] == $elemento['sesso'] && $el['nazionalità'] == $elemento['nazionalità']){
+            return true;
+        }
+    }
+    return false;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $athlete = [
         'nome' => $_POST['nome'],
@@ -14,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'nazionalità' => $_POST['nazionalità'],
         'specialità' => $_POST['specialità']
     ];
-    $_SESSION['athletes'][] = $athlete;
+    if(!contiene($_SESSION['athletes'], $athlete)){
+        $_SESSION['athletes'][] = $athlete;
+    }
 }
 
 $specialties = ['discesa libera', 'super-G', 'slalom gigante', 'slalom speciale', 'combinata'];
@@ -97,6 +108,11 @@ $specialties = ['discesa libera', 'super-G', 'slalom gigante', 'slalom speciale'
             <?php endforeach; ?>
         </select><br>
         <input type="submit" value="Iscriviti">
+    </form>
+
+    <form action="deleteSession">
+        <input type="hidden" name="from" value="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <input type="submit" value="Cancella Dati">
     </form>
 
     <h2>Atleti Iscritti</h2>
