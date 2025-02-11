@@ -27,11 +27,11 @@ require_once("header.php");?>
                 $rs = $GLOBALS["conn"]->query($_POST["query"]);
                 if($rs):
                     $resultSet = $rs->fetch_assoc()?>
-                    <div class="decks-section">
-                        <div class="decks-container">
+                    <div>
+                        <div>
                             <table>
                                 <thead>
-                                    <tr class="deck-header">
+                                    <tr>
                                         <?php foreach($resultSet as $column=>$value): ?>
                                             <td>
                                                 <?php echo $column; ?>
@@ -42,19 +42,12 @@ require_once("header.php");?>
                                 </thead>
                                 <tbody>
                                     <?php while($resultSet = $rs->fetch_assoc()): ?>
-                                        <tr class="card-in-deck-row deck-card">
+                                        <tr>
                                             <?php foreach($resultSet as $value): ?>
                                                 <td>
-                                                    <?php if(isset($resultSet["nome"]) and isset($resultSet["espansione"]) and isset($resultSet["numero"])){?>
-                                                    <a href="<?php echo "https://swudb.com/card/" . $resultSet["espansione"] . "/" . sprintf("%0" . $numeri[$resultSet["espansione"]] . "d", $resultSet["numero"]);?>" target="_blank">
-                                                        <?php echo "$value";
-                                                            if($value === $resultSet["nome"]){
-                                                                ?><img class="card-hover" src="https://swudb.com/cards/<?php echo $resultSet["espansione"] . "/" . sprintf("%0" . $numeri[$resultSet["espansione"]] . "d", $resultSet["numero"]);?>.png"><?php
-                                                            }; ?>
-                                                    </a>
-                                                    <?php }else{
+                                                    <?php
                                                         echo $value;
-                                                    }?>
+                                                    ?>
                                                 </td>
                                             <?php endforeach; ?>
                                         </tr>
