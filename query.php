@@ -15,7 +15,7 @@ require_once("header.php");?>
                 if(!isset($_POST[$column])) $_POST[$column] = $value;
             }
         ?>
-        <?php if(isset($_SESSION["user"]) && unserialize($_SESSION["user"])->isAdmin()):?>
+        <?php //if(isset($_SESSION["user"]) && unserialize($_SESSION["user"])->isAdmin()):?>
             <div class="container">
                 <form action="./query" method="post">
                     <input type="text" name="query" id="query" value="<?php if(isset($_POST["query"])) echo $_POST["query"]; else echo "select * from "; ?>">
@@ -60,10 +60,10 @@ require_once("header.php");?>
                     echo "ho fatto ".$GLOBALS["conn"]->affected_rows." modifiche";
                 endif;?>
             </div>
-        <?php elseif(isset($_SESSION["user"])):?>
+        <!--<?php /*elseif(isset($_SESSION["user"])):?>
             <meta http-equiv="refresh" content="0; url=./home">
             <?php else: ?>
             <meta http-equiv="refresh" content="0; url=./login?from=<?php echo $file.(isset($_POST["query"]) ? "?query=".$_POST["query"]:"");?>">
-            <?php endif;?>
+        <?php endif;*/?>-->
     </body>
 </html>
