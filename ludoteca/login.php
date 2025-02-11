@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body>
-    <?php require_once '../header.php'; ?>
+    <?php require_once 'header.php'; ?>
     <h2>Login</h2>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
