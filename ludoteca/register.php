@@ -5,19 +5,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Check if the user is registered
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    // Save the new user
+    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
-    $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $_SESSION['username'] = $username;
-        header('Location: dashboard.php');
-        exit();
-    } else {
-        $error = "Username o password errati";
-    }
+    header('Location: login.php');
+    exit();
 }
 ?>
 
@@ -25,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registrazione</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin: 0;
             padding: 20px;
         }
-        .login-form {
+        .register-form {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
@@ -41,14 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             max-width: 300px;
             margin: auto;
         }
-        .login-form input[type="text"], .login-form input[type="password"] {
+        .register-form input[type="text"], .register-form input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .login-form input[type="submit"] {
+        .register-form input[type="submit"] {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
@@ -56,26 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 5px;
             cursor: pointer;
         }
-        .login-form input[type="submit"]:hover {
+        .register-form input[type="submit"]:hover {
             background-color: #45a049;
-        }
-        .error {
-            color: red;
-        }
-    </style>
 </head>
 <body>
-    <div class="login-form">
-        <h2>Login</h2>
-        <?php if (isset($error)): ?>
-            <p class="error"><?php echo $error; ?></p>
-        <?php endif; ?>
+    <div class="register-form">
+        <h2>Registrazione</h2>
         <form method="post" action="">
             Username: <input type="text" name="username" required><br>
             Password: <input type="password" name="password" required><br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Registrati">
         </form>
-        <p>Non sei registrato? <a href="register.php">Registrati qui</a></p>
     </div>
 </body>
 </html>
