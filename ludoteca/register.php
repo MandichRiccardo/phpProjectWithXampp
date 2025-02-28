@@ -1,5 +1,5 @@
 <?php
-require_once 'header.php';
+require_once '../header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -52,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         .register-form input[type="submit"]:hover {
             background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <div class="register-form">
