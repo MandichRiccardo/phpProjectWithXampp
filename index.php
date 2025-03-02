@@ -51,7 +51,7 @@
     }
 
     function println($line){
-        printlnd($line, 0);
+        printlnd($line, 0, "");
     }
 
     $file = scanDirectory(".");
