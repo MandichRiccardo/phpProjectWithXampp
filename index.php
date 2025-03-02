@@ -41,7 +41,7 @@
             echo "}<br>";
         }else{
             try{
-                echo "$line(" . gettype($line) . ")";
+                echo "$line";
             }catch(Error $e){
                 echo "Errore: " . $e->getMessage();
                 echo gettype($line);
