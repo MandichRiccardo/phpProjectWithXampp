@@ -15,7 +15,7 @@
                     if(is_dir("$directory/$file")){
                         array_push($ret, scanDirectory("$directory/$file"));
                     }else{
-                        array_push($ret, "$directory/$file");
+                        array_push($ret, "$file");
                     }
                 }
             }
@@ -51,7 +51,7 @@
     }
 
     function println($line){
-        printlnd($line, 0, "");
+        printlnd($line, name: "");
     }
 
     $file = scanDirectory(".");
