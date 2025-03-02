@@ -15,7 +15,7 @@
                     if(is_dir("$directory/$file")){
                         $ret["$file"] = scanDirectory("$directory/$file");
                     }else{
-                        array_push($ret, "$file");
+                        $ret["$directory/$file"] = $file;
                     }
                 }
             }
@@ -24,7 +24,7 @@
         return $ret;
     }
 
-    function printlnd($line, $deep = 0, $name){
+    function printlnd($line, $deep = 0, $name, $link = false){
         if(gettype($line) == 'array' || gettype($line) == 'object'){
             echo "$name-->{<br>";
             foreach($line as $i => $value){
@@ -41,7 +41,11 @@
             echo "}<br>";
         }else{
             try{
-                echo "$line";
+                if($link){
+                    echo "$line";
+                }else{
+                    echo "<a href='$name'>$line</a>";
+                }
             }catch(Error $e){
                 echo "Errore: " . $e->getMessage();
                 echo gettype($line);
