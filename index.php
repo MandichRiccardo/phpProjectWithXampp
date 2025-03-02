@@ -15,47 +15,37 @@
                     if(is_dir("$directory/$file")){
                         array_push($ret, scanDirectory("$directory/$file"));
                     }else{
-                        array_push($ret, "<a target='_blank' href=\"$directory/$file\">$directory/$file</a>");
+                        array_push($ret, "$directory/$file");
                     }
-                }/**/
+                }
             }
             closedir($dir);
         }catch(Error $e){}
         return $ret;
     }
 
-    function printlnd($line, $deep){
-        if(gettype($line) == 'array'){
-            echo "{<br>";
+    function printlnd($line, $deep = 0, $name){
+        if(gettype($line) == 'array' || gettype($line) == 'object'){
+            echo "$name-->{<br>";
             foreach($line as $i => $value){
                 unset($j);
                 for($j = 0;$j<=$deep;$j++){
-                    echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    echo "&nbsp;&nbsp;";
                 }
-                if(gettype($value) == 'array'){
-                    if(gettype($value[""]) == 'string'){
-                        preg_match("/>.*</", $value[0], $contenuto);
-                        $contenuto = str_replace("<", "", $contenuto[0]);
-                        $contenuto = str_replace(">", "", $contenuto);
-                        $contenuto = preg_replace("/\/[^\/]+$/", "", $contenuto);
-                        $contenuto = preg_replace("/^.*\//", "", $contenuto);
-                        echo "$contenuto-->";
-                    }
-                }
-                printlnd($value, $deep+1);
+                printlnd($value, $deep+1, $i);
             }
             unset($j);
             for($j = 0;$j<$deep;$j++){
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo "&nbsp;&nbsp;";
             }
             echo "}<br>";
         }else{
-            preg_match("/>.*</", $line, $contenuto);
-            $contenuto = str_replace("<", "", $contenuto[0]);
-            $contenuto = str_replace(">", "", $contenuto);
-            $contenuto = preg_replace("/^.*\//", "", $contenuto);
-            $link = preg_replace("/>.*</", ">$contenuto<", $line);
-            echo $link;
+            try{
+                echo "$name=>$line(" . gettype($line) . ")";
+            }catch(Error $e){
+                echo "Errore: " . $e->getMessage();
+                echo gettype($line);
+            }
             echo "<br>";
         }
     }
