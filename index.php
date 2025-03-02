@@ -13,7 +13,7 @@
             while (($file = readdir($dir)) !== false) {
                 if ($file != '.' && $file != '..') {
                     if(is_dir("$directory/$file")){
-                        array_push($ret, scanDirectory("$directory/$file"));
+                        $ret["$file"] = scanDirectory("$directory/$file");
                     }else{
                         array_push($ret, "$file");
                     }
@@ -41,7 +41,7 @@
             echo "}<br>";
         }else{
             try{
-                echo "$name=>$line(" . gettype($line) . ")";
+                echo "$line(" . gettype($line) . ")";
             }catch(Error $e){
                 echo "Errore: " . $e->getMessage();
                 echo gettype($line);
