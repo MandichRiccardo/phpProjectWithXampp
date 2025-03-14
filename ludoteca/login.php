@@ -1,5 +1,11 @@
 <?php
+session_start();
 require_once '../header.php';
+
+if (isset($_SESSION['username'])) {
+    header('Location: dashboard.php');
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -16,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: dashboard.php');
         exit();
     } else {
-        $error = "Username o password errati";
+        $error = "Invalid username or password";
     }
 }
 ?>
@@ -27,53 +33,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Login</title>
     <style>
+        /* Add CSS styles for the login form */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
         }
-        .login-form {
+        .login {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
+            max-width: 400px;
             margin: auto;
         }
-        .login-form input[type="text"], .login-form input[type="password"] {
+        .login h2 {
+            color: #333;
+        }
+        .login input {
+            display: block;
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .login-form input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
+        .login button {
             padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        .login-form input[type="submit"]:hover {
+        .login button:hover {
             background-color: #45a049;
         }
         .error {
             color: red;
         }
     </style>
+    <script>
+        // Add JavaScript for form validation
+        function validateForm() {
+            var username = document.forms["loginForm"]["username"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            if (username == "" || password == "") {
+                alert("Username and password must be filled out");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
-    <div class="login-form">
+    <div class="login">
         <h2>Login</h2>
-        <?php if (isset($error)): ?>
-            <p class="error"><?php echo $error; ?></p>
-        <?php endif; ?>
-        <form method="post" action="">
-            Username: <input type="text" name="username" required><br>
-            Password: <input type="password" name="password" required><br>
-            <input type="submit" value="Login">
+        <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
+        <form name="loginForm" action="" method="post" onsubmit="return validateForm()">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
         </form>
         <p>Non sei registrato? <a href="register.php">Registrati qui</a></p>
     </div>
