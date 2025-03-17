@@ -54,26 +54,26 @@ while($line = $result->fetch_assoc()){
         }
     </style>
 </head>
-<body>
+<body class="products">
     <div class="products">
         <h2>Elenco Prodotti</h2>
-        <table>
+        <table class="products">
             <thead>
                 <tr>
-                    <th>Nome Prodotto</th>
-                    <th>Prezzo</th>
-                    <th>Dettaglio</th>
+                    <th class="products">Nome Prodotto</th>
+                    <th class="products">Prezzo</th>
+                    <th class="products">Dettaglio</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($prodotti as $prodotto):?>
-                    <td>
+                    <td class="products">
                         <?php echo $prodotto["name"];?>
                     </td>
-                    <td>
+                    <td class="products">
                         <?php echo $prodotto["price"];?>
                     </td>
-                    <td>
+                    <td class="products">
                         <?php echo $prodotto["description"];?>
                     </td>
                 <?php endforeach;?>
