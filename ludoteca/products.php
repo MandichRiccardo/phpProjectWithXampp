@@ -5,8 +5,11 @@ if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit();
 }
-// Fetch products from the database
-// ...existing code for fetching products...
+$prodotti = [];
+$result = $GLOBALS["conn"]->query("select * from products");
+while($line = $result->fetch_assoc()){
+    array_push($prodotti, $line);
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,15 +58,26 @@ if (!isset($_SESSION['username'])) {
     <div class="products">
         <h2>Elenco Prodotti</h2>
         <table>
-            <tr>
-                <th>Nome Prodotto</th>
-                <th>Prezzo</th>
-                <th>Dettaglio</th>
-            </tr>
-            <?php
-            // Loop through products and display them in the table
-            // ...existing code for displaying products...
-            ?>
+            <thead>
+                <tr>
+                    <th>Nome Prodotto</th>
+                    <th>Prezzo</th>
+                    <th>Dettaglio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($prodotti as $prodotto):?>
+                    <td>
+                        <?php echo $prodotto["name"];?>
+                    </td>
+                    <td>
+                        <?php echo $prodotto["price"];?>
+                    </td>
+                    <td>
+                        <?php echo $prodotto["description"];?>
+                    </td>
+                <?php endforeach;?>
+            </tbody>
         </table>
     </div>
 </body>
