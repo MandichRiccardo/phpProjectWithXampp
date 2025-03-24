@@ -5,8 +5,26 @@ if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit();
 }
-// Fetch cart items from the session
-// ...existing code for fetching cart items...
+if(!isset($_SESSION["carrello"])){
+    $_SESSION["carrello"] = [];
+}
+
+if(isset($_POST["operazione"])){
+    $carrello = $_SESSION["carrello"];
+    if($_POST["operazione"] == "aggiungi"){
+        $alreadyPresent = false;
+        foreach($carrello as $c){
+            if($c["id"] == $_POST["id"]){
+                $alreadyPresent=true;
+                $c["quantita"]+=$_POST["quantita"];
+            }
+        }
+        if(!$alreadyPresent){
+            array_push($carrello, $prodotto);
+        }
+    }
+    $_SESSION["carrello"] = $carrello;
+}
 ?>
 
 <!DOCTYPE html>

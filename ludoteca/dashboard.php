@@ -12,12 +12,12 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
-        }
+        } */
         .dashboard {
             background-color: #fff;
             padding: 20px;
