@@ -75,6 +75,7 @@ if(isset($_POST["operazione"])){
 </head>
 <body>
     <div class="cart">
+        <h1><?php var_dump($_SESSION)?></h1>
         <h2>Gestione Carrello Spesa</h2>
         <table>
             <thead>
