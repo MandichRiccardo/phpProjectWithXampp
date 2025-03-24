@@ -75,7 +75,6 @@ if(isset($_POST["operazione"])){
 </head>
 <body>
     <div class="cart">
-        <h1><?php var_dump($_SESSION)?></h1>
         <h2>Gestione Carrello Spesa</h2>
         <table>
             <thead>
@@ -104,6 +103,9 @@ if(isset($_POST["operazione"])){
                             </td>
                             <td>
                                 <?= $prodotto["quantita"]*$result["price"];?>
+                            </td>
+                            <td>
+                                <form action="" method="post"></form>
                             </td>
                         </tr>
                         <?php
