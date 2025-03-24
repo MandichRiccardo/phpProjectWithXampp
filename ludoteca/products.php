@@ -92,6 +92,7 @@ while($line = $result->fetch_assoc()){
                         <form action="/ludoteca/cart" method="post">
                             <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
                             <input type="hidden" name="quantita" value="1">
+                            <input type="hidden" name="operazione" value="aggiungi">
                             <input type="submit" value="Aggiungi">
                         </form>
                     </td>
