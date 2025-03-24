@@ -60,7 +60,7 @@ if(isset($_POST["operazione"])){
         .cart th {
             background-color: #f2f2f2;
         }
-        .cart button {
+        .cart button, .cart input[type="submit"] {
             padding: 10px 20px;
             background-color: #4CAF50;
             color: #fff;
@@ -68,7 +68,7 @@ if(isset($_POST["operazione"])){
             border-radius: 5px;
             cursor: pointer;
         }
-        .cart button:hover {
+        .cart button:hover, .cart input[type="submit"]:hover {
             background-color: #45a049;
         }
     </style>
@@ -109,7 +109,7 @@ if(isset($_POST["operazione"])){
                                 <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
                                 <input type="number" name="quantita" value="1" max="<?php $prodotto["quantita"]?>" min="0">
                                 <input type="hidden" name="operazione" value="rimuovi">
-                                <input type="submit" value="Aggiungi">
+                                <input type="submit" value="Rimuovi">
                                 </form>
                             </td>
                         </tr>
