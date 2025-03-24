@@ -105,7 +105,12 @@ if(isset($_POST["operazione"])){
                                 <?= $prodotto["quantita"]*$result["price"];?>
                             </td>
                             <td>
-                                <form action="" method="post"></form>
+                                <form action="/ludoteca/cart" method="post">
+                                <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
+                                <input type="number" name="quantita" value="1" max="<?php $prodotto["quantita"]?>" min="0">
+                                <input type="hidden" name="operazione" value="rimuovi">
+                                <input type="submit" value="Aggiungi">
+                                </form>
                             </td>
                         </tr>
                         <?php
