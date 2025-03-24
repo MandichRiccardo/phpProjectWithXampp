@@ -77,17 +77,38 @@ if(isset($_POST["operazione"])){
     <div class="cart">
         <h2>Gestione Carrello Spesa</h2>
         <table>
-            <tr>
-                <th>Nome Prodotto</th>
-                <th>Prezzo</th>
-                <th>Quantità</th>
-                <th>Totale</th>
-                <th>Azioni</th>
-            </tr>
-            <?php
-            // Loop through cart items and display them in the table
-            // ...existing code for displaying cart items...
-            ?>
+            <thead>
+                <tr>
+                    <th>Nome Prodotto</th>
+                    <th>Prezzo</th>
+                    <th>Quantità</th>
+                    <th>Totale</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($_SESSION["carrello"] as $prodotto){
+                        $result = $conn->query("select * from products where id = {$prodotto["id"]}")->fetch_assoc();
+                        ?>
+                        <tr>
+                            <td>
+                                <?= $result["name"];?>
+                            </td>
+                            <td>
+                                <?= $result["price"];?>
+                            </td>
+                            <td>
+                                <?= $prodotto["quantita"];?>
+                            </td>
+                            <td>
+                                <?= $prodotto["quantita"]*$result["price"];?>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                ?>
+            </tbody>
         </table>
         <button>Effettua Acquisto</button>
     </div>
