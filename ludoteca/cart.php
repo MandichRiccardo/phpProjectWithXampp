@@ -25,7 +25,15 @@ if(isset($_POST["operazione"])){
     }else if($_POST["operazione"] == "rimuovi"){
         
     }else if($_POST["operazione"] == "compra"){
-
+        $subject = "acquisti in ludoteca sul sito mandichriccardo.altervista.org";
+        $headers = 'From: no-reply@santifrancescoechiara.altervista.org' . "\r\n";
+        $message = "";
+        foreach($_SESSION["carrello"] as $prodotto){
+            $result = $conn->query("select * from products where id = {$prodotto["id"]}")->fetch_assoc();
+            $message = "$messagehi acquistato con successo ".$prodotto["quantita"]." ".$result["name"]."\n";
+        }
+        $to = $conn->query("select mail from users where id = ".$_SESSION["user"])->fetch_assoc()["mail"];
+        mail($to, $subject, $message, $headers);
         $carrello = [];
     }
     $_SESSION["carrello"] = $carrello;

@@ -12,13 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Check if the user is registered
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $result = $conn->query("SELECT * FROM users WHERE username = $username AND password = $password")->fetch_assoc();
 
-    if ($result->num_rows > 0) {
-        $_SESSION['username'] = $username;
+    if ($result) {
+        $_SESSION['user'] = $result["id"];
         header('Location: dashboard.php');
         exit();
     } else {
