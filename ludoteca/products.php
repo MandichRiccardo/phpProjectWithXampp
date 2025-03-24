@@ -54,7 +54,7 @@ while($line = $result->fetch_assoc()){
         }
     </style>
 </head>
-<body class="products">
+<body>
     <div class="products">
         <h2>Elenco Prodotti</h2>
         <table class="products">
@@ -63,6 +63,7 @@ while($line = $result->fetch_assoc()){
                     <th class="products">Nome Prodotto</th>
                     <th class="products">Prezzo</th>
                     <th class="products">Dettaglio</th>
+                    <th class="products">Carrello</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,6 +76,12 @@ while($line = $result->fetch_assoc()){
                     </td>
                     <td class="products">
                         <?php echo $prodotto["description"];?>
+                    </td>
+                    <td class="products">
+                        <form action="/ludoteca/cart" method="post">
+                            <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
+                            <input type="hidden" name="quantita" value="1">
+                        </form>
                     </td>
                 <?php endforeach;?>
             </tbody>
