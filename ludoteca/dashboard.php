@@ -46,7 +46,6 @@ if (!isset($_SESSION['username'])) {
         <a href="products.php">Elenco Prodotti</a>
         <a href="invoices.php">Elenco Fatture</a>
         <a href="cart.php">Gestione Carrello Spesa</a>
-        <a href="purchased.php">Elenco Prodotti Acquistati</a>
     </div>
 </body>
 </html>
