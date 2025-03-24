@@ -32,7 +32,6 @@ if(isset($_POST["operazione"])){
             $result = $conn->query("select * from products where id = {$prodotto["id"]}")->fetch_assoc();
             $message = "$messagehi acquistato con successo ".$prodotto["quantita"]." ".$result["name"]."\n";
         }
-        echo "select mail from users where id = ".$_SESSION["user"];
         $to = $conn->query("select mail from users where id = ".$_SESSION["user"])->fetch_assoc()["mail"];
         mail($to, $subject, $message, $headers);
         $carrello = [];
