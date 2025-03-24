@@ -52,6 +52,17 @@ while($line = $result->fetch_assoc()){
         .products a:hover {
             text-decoration: underline;
         }
+        .products input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .products input[type="submit"]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +92,7 @@ while($line = $result->fetch_assoc()){
                         <form action="/ludoteca/cart" method="post">
                             <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
                             <input type="hidden" name="quantita" value="1">
+                            <input type="submit" value="Aggiungi">
                         </form>
                     </td>
                 <?php endforeach;?>
