@@ -13,7 +13,7 @@ if(isset($_POST["operazione"])){
     $carrello = $_SESSION["carrello"];
     if($_POST["operazione"] == "aggiungi"){
         $alreadyPresent = false;
-        foreach($carrello as $c){
+        foreach($carrello as &$c){
             if($c["id"] == $_POST["id"]){
                 $alreadyPresent=true;
                 $c["quantita"]+=$_POST["quantita"];
