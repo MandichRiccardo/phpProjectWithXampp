@@ -26,7 +26,7 @@ if(isset($_POST["operazione"])){
         
     }else if($_POST["operazione"] == "compra"){
         $subject = "acquisti in ludoteca sul sito mandichriccardo.altervista.org";
-        $headers = 'From: no-reply@santifrancescoechiara.altervista.org' . "\r\n";
+        $headers = "From: no-reply@MandichRiccardo.altervista.org\r\n";
         $message = "";
         foreach($_SESSION["carrello"] as $prodotto){
             $result = $conn->query("select * from products where id = {$prodotto["id"]}")->fetch_assoc();
