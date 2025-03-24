@@ -20,7 +20,7 @@ if(isset($_POST["operazione"])){
             }
         }
         if(!$alreadyPresent){
-            array_push($carrello, $prodotto);
+            array_push($carrello, ["id"=>$_POST["id"], "quantita"=>$_POST["quantita"]]);
         }
     }
     $_SESSION["carrello"] = $carrello;
