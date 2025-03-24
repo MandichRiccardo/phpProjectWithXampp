@@ -89,7 +89,6 @@ if(isset($_POST["operazione"])){
             </thead>
             <tbody>
                 <?php
-                echo "select * from products where id = {$prodotto["id"]}";
                     foreach($_SESSION["carrello"] as $prodotto){
                         $result = $conn->query("select * from products where id = {$prodotto["id"]}")->fetch_assoc();
                         ?>
