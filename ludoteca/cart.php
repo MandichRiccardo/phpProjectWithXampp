@@ -22,6 +22,11 @@ if(isset($_POST["operazione"])){
         if(!$alreadyPresent){
             array_push($carrello, ["id"=>$_POST["id"], "quantita"=>$_POST["quantita"]]);
         }
+    }else if($_POST["operazione"] == "rimuovi"){
+        
+    }else if($_POST["operazione"] == "compra"){
+
+        $carrello = [];
     }
     $_SESSION["carrello"] = $carrello;
 }
@@ -106,10 +111,10 @@ if(isset($_POST["operazione"])){
                             </td>
                             <td>
                                 <form action="/ludoteca/cart" method="post">
-                                <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
-                                <input type="number" name="quantita" value="1" max="<?php $prodotto["quantita"]?>" min="0">
-                                <input type="hidden" name="operazione" value="rimuovi">
-                                <input type="submit" value="Rimuovi">
+                                    <input type="hidden" name="id" value="<?php echo $prodotto["id"]?>">
+                                    <input type="number" name="quantita" value="1" max="<?= $prodotto["quantita"]?>" min="0">
+                                    <input type="hidden" name="operazione" value="rimuovi">
+                                    <input type="submit" value="Rimuovi">
                                 </form>
                             </td>
                         </tr>
@@ -118,7 +123,10 @@ if(isset($_POST["operazione"])){
                 ?>
             </tbody>
         </table>
-        <button>Effettua Acquisto</button>
+        <form action="/ludoteca/cart" method="post">
+            <input type="hidden" name="operazione" value="compra">
+            <input type="submit" value="Effettua Acquisto">
+        </form>
     </div>
 </body>
 </html>
