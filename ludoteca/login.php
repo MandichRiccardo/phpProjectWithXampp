@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Check if the user is registered
-    $result = $conn->query("SELECT * FROM users WHERE username = $username AND password = $password")->fetch_assoc();
+    $result = $conn->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'")->fetch_assoc();
 
     if ($result) {
         $_SESSION['user'] = $result["id"];
