@@ -75,7 +75,7 @@ if(isset($_POST["operazione"])){
 </head>
 <body>
     <div class="cart">
-        <h2>Gestione Carrello Spesa</h2>
+        <h1>Gestione Carrello Spesa</h1>
         <table>
             <thead>
                 <tr>
